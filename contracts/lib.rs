@@ -89,7 +89,7 @@ mod erc20 {
             Self::env().emit_event(Transfer {
                 from: None,
                 to: Some(caller),
-                value: 0,
+                value: initial_supply,
             });
             instance
         }
