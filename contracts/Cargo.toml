@@ -5,16 +5,15 @@ authors = ["Parity Technologies <admin@parity.io>"]
 edition = "2018"
 
 [dependencies]
-ink_primitives = { version = "3.0.0-rc3", default-features = false }
-ink_metadata = { version = "3.0.0-rc3", default-features = false, features = ["derive"], optional = true }
-ink_env = { version = "3.0.0-rc3", default-features = false }
-ink_storage = { version = "3.0.0-rc3", default-features = false }
-ink_lang = { version = "3.0.0-rc3", default-features = false }
-ink_prelude = { version = "3.0.0-rc3", default-features = false }
-ink_log = { version = "0.1", git = "https://github.com/patractlabs/ink-log", branch = "ink-v3.0.0rc3", default-features = false, features = ["ink-log-chain-extensions"] }
+ink_primitives = { git = "https://github.com/paritytech/ink", rev = "8e8fe09565ca6d2fad7701d68ff13f12deda7eed", default-features = false }
+ink_metadata = { git = "https://github.com/paritytech/ink", rev = "8e8fe09565ca6d2fad7701d68ff13f12deda7eed", default-features = false, features = ["derive"], optional = true }
+ink_env = { git = "https://github.com/paritytech/ink", rev = "8e8fe09565ca6d2fad7701d68ff13f12deda7eed", default-features = false }
+ink_storage = { git = "https://github.com/paritytech/ink", rev = "8e8fe09565ca6d2fad7701d68ff13f12deda7eed", default-features = false }
+ink_lang = { git = "https://github.com/paritytech/ink", rev = "8e8fe09565ca6d2fad7701d68ff13f12deda7eed", default-features = false }
+ink_prelude = { git = "https://github.com/paritytech/ink", rev = "8e8fe09565ca6d2fad7701d68ff13f12deda7eed", default-features = false }
 
-scale = { package = "parity-scale-codec", version = "2.0", default-features = false, features = ["derive"] }
-scale-info = { version = "0.6", default-features = false, features = ["derive"], optional = true }
+scale = { package = "parity-scale-codec", version = "1.3", default-features = false, features = ["derive"] }
+scale-info = { version = "0.4", default-features = false, features = ["derive"], optional = true }
 
 # Should be removed once bitvecto-rs/bitvec#105 is resolved
 funty = "=1.1.0"
@@ -37,7 +36,5 @@ std = [
     "scale/std",
     "scale-info",
     "scale-info/std",
-
-    "ink_log/std",
 ]
 ink-as-dependency = []

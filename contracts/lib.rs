@@ -18,7 +18,7 @@ use ink_lang as ink;
 
 // for ink! v3.0.0-rc3, `call_chain_extension` is not an open api, 
 // thus developers only could use CustomEnvironment to provider logger feature.
-#[ink::contract(env = ink_log::CustomEnvironment)]
+#[ink::contract]
 mod erc20 {
     #[cfg(not(feature = "ink-as-dependency"))]
     use ink_storage::{
@@ -89,7 +89,7 @@ mod erc20 {
             Self::env().emit_event(Transfer {
                 from: None,
                 to: Some(caller),
-                value: initial_supply,
+                value: 0,
             });
             instance
         }
@@ -126,10 +126,6 @@ mod erc20 {
         /// the caller's account balance.
         #[ink(message)]
         pub fn transfer(&mut self, to: AccountId, value: Balance) -> Result<()> {
-            // print the log
-            ink_log::info!(target: "erc20-contract", "transfer value is: {}", value);
-            // meet a panic
-            panic!("we meet a panic here");
             let from = self.env().caller();
             self.transfer_from_to(from, to, value)
         }
